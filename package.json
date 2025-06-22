@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "node --watch index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node index.js",
+  "dev": "node --watch index.js",
+  "build:ui": "powershell -Command \"Remove-Item -Recurse -Force dist; cd 'C:/Users/Admin/Documents/noted/note-app'; npm run build; Copy-Item -Recurse dist 'C:/Users/Admin/backend/dist'\"",
+  "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push"
+},
+
   "author": "",
   "license": "ISC",
   "description": "",
